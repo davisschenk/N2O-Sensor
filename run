@@ -1,0 +1,7 @@
+export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:/usr/lib/x86_64-linux-gnu/pkgconfig/
+export PKG_CONFIG_ALLOW_CROSS=1
+
+cross build --release --target=armv7-unknown-linux-gnueabihf
+
+scp target/armv7-unknown-linux-gnueabihf/release/n2o_sensor pi@n2osensor.local:~/n2o_sensor
+scp .env pi@n2osensor.local:~/.env
